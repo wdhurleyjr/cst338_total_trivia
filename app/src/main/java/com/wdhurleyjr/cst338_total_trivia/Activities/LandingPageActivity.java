@@ -23,6 +23,8 @@ public class LandingPageActivity extends AppCompatActivity {
         Button adminButton2 = findViewById(R.id.activity_landing_page_user_management_button);
         Button logoutButton = findViewById(R.id.activity_landing_page_logout_button);
         Button playButton = findViewById(R.id.activity_landing_page_play_button);
+        Button leaderboardButton = findViewById(R.id.activity_landing_page_leaderboard_button);
+
 
         // Set visibility based on the admin status
         if (isAdmin) {
@@ -44,6 +46,27 @@ public class LandingPageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent gameActivityIntent = GameActivity.gameIntentFactory(getApplicationContext());
                 startActivity(gameActivityIntent);
+            }
+        });
+        adminButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent createGameActivityIntent = CreateGameActivity.createGameIntentFactory(getApplicationContext());
+                startActivity(createGameActivityIntent);
+            }
+        });
+        adminButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent userManagemnetActivityIntent = UserManagementActivity.userManagementIntentFactory(getApplicationContext());
+                startActivity(userManagemnetActivityIntent);
+            }
+        });
+        leaderboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent leaderboardActivityIntent = LeaderboardActivity.leaderboardIntentFactory(getApplicationContext());
+                startActivity(leaderboardActivityIntent);
             }
         });
     }
