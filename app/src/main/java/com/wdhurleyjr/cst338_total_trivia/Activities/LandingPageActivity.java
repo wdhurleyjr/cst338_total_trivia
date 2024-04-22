@@ -45,6 +45,7 @@ public class LandingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent gameActivityIntent = GameActivity.gameIntentFactory(getApplicationContext());
+                gameActivityIntent.putExtra("isAdmin", isAdmin);
                 startActivity(gameActivityIntent);
             }
         });
@@ -52,6 +53,7 @@ public class LandingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent createGameActivityIntent = CreateGameActivity.createGameIntentFactory(getApplicationContext());
+                createGameActivityIntent.putExtra("isAdmin", isAdmin);
                 startActivity(createGameActivityIntent);
             }
         });
@@ -59,6 +61,7 @@ public class LandingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent userManagemnetActivityIntent = UserManagementActivity.userManagementIntentFactory(getApplicationContext());
+                userManagemnetActivityIntent.putExtra("isAdmin", isAdmin);
                 startActivity(userManagemnetActivityIntent);
             }
         });
@@ -66,6 +69,7 @@ public class LandingPageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent leaderboardActivityIntent = LeaderboardActivity.leaderboardIntentFactory(getApplicationContext());
+                leaderboardActivityIntent.putExtra("isAdmin", isAdmin);
                 startActivity(leaderboardActivityIntent);
             }
         });

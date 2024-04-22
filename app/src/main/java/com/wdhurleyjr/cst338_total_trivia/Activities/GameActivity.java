@@ -19,12 +19,15 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        Intent intent = getIntent();
+        boolean isAdmin = intent.getBooleanExtra("isAdmin", false);
         ImageView leftIcon = findViewById(R.id.left_icon);
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent landingPageIntent = LandingPageActivity.landingPageIntentFactory(getApplicationContext());
+                landingPageIntent.putExtra("isAdmin", isAdmin);
                 startActivity(landingPageIntent);
             }
         });
