@@ -9,10 +9,11 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.wdhurleyjr.cst338_total_trivia.R;
+import com.wdhurleyjr.cst338_total_trivia.Recycler.RecyclerViewInterface;
 
 import java.util.Objects;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements RecyclerViewInterface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,10 @@ public class GameActivity extends AppCompatActivity {
                 startActivity(landingPageIntent);
             }
         });
+    }
+    @Override
+    public void onClickItem(int position) {
+
     }
     public static Intent gameIntentFactory(Context context) {
         return new Intent(context, GameActivity.class);
