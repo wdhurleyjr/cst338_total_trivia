@@ -12,24 +12,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cst338_total_trivia"
         tools:targetApi="31">
+
+        <!-- Main Activity with Intent Filter -->
+        <activity
+            android:name=".Activities.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Additional Activities -->
+        <activity
+            android:name=".Activities.CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.CreateGameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.GameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LandingPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.LoginActivity"
+            android:exported="false" />
         <activity
             android:name=".Activities.LeaderboardActivity"
             android:exported="false" />
         <activity
             android:name=".Activities.UserManagementActivity"
             android:exported="false" />
-        <activity
-            android:name=".Activities.CreateGameActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
     </application>
 
 </manifest>

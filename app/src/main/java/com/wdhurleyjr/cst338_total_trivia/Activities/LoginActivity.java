@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.wdhurleyjr.cst338_total_trivia.DB.User.UserLogDataBase;
@@ -31,7 +32,15 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.username_edit_text);
         password = findViewById(R.id.password_edit_text);
         Button log_in_button = findViewById(R.id.login_activity_log_in_button);
+        ImageView leftIcon = findViewById(R.id.left_icon);
 
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainActivityIntent = MainActivity.mainActivityIntentFactory(getApplicationContext());
+                startActivity(mainActivityIntent);
+            }
+        });
 
         log_in_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.wdhurleyjr.cst338_total_trivia.DB.User.UserLogDataBase;
@@ -32,8 +33,17 @@ public class CreateAccountActivity extends AppCompatActivity {
         password = findViewById(R.id.activity_create_account_password_edit_text);
         email = findViewById(R.id.activity_create_account_email_edit_text);
         Button create_account_button = findViewById(R.id.activity_create_account_button);
+        ImageView leftIcon = findViewById(R.id.left_icon);
 
         userLogDao = Room.databaseBuilder(this, UserLogDataBase.class, UserLogDataBase.USER_LOG_DATA_BASE_NAME).allowMainThreadQueries().build().UserLogDao();
+
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainActivityIntent = MainActivity.mainActivityIntentFactory(getApplicationContext());
+                startActivity(mainActivityIntent);
+            }
+        });
 
         create_account_button.setOnClickListener(new View.OnClickListener() {
             @Override
