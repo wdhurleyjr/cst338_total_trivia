@@ -7,6 +7,10 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.GameDao;
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.QuestionDao;
+
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 

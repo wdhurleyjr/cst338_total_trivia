@@ -1,5 +1,6 @@
 package com.wdhurleyjr.cst338_total_trivia.DB.Game;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
@@ -22,8 +23,10 @@ public class Question {
     private String gameAnswer2;
     private String gameAnswer3;
     private String gameAnswer4;
+    private String correctAnswer;
+    private boolean isAnswered;
 
-    public Question(int questionId, String gameId, String gameQuestion, String gameAnswer1, String gameAnswer2, String gameAnswer3, String gameAnswer4) {
+    public Question(int questionId, String gameId, String gameQuestion, String gameAnswer1, String gameAnswer2, String gameAnswer3, String gameAnswer4, String correctAnswer, Boolean isAnswered) {
         this.questionId = questionId;
         this.gameId = gameId;
         this.gameQuestion = gameQuestion;
@@ -31,6 +34,8 @@ public class Question {
         this.gameAnswer2 = gameAnswer2;
         this.gameAnswer3 = gameAnswer3;
         this.gameAnswer4 = gameAnswer4;
+        this.correctAnswer = correctAnswer;
+        this.isAnswered = isAnswered;
     }
 
     public int getQuestionId() {
@@ -89,6 +94,24 @@ public class Question {
         this.gameAnswer4 = gameAnswer4;
     }
 
+    public String getCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
+    public boolean isAnswered() {
+        return isAnswered;
+    }
+
+    public void setAnswered(boolean answered) {
+        isAnswered = answered;
+    }
+
+    @NonNull
+
     @Override
     public String toString() {
         return "Question{" +
@@ -99,6 +122,8 @@ public class Question {
                 ", gameAnswer2='" + gameAnswer2 + '\'' +
                 ", gameAnswer3='" + gameAnswer3 + '\'' +
                 ", gameAnswer4='" + gameAnswer4 + '\'' +
+                ", correctAnswer='" + correctAnswer + '\'' +
+                ", isAnswered=" + isAnswered +
                 '}';
     }
 }

@@ -19,8 +19,8 @@ public interface QuestionDao {
     @Delete
     void delete(Question... questions);
 
-    @Query("SELECT * FROM question_table WHERE gameId = :gameId")
-    List<Question> getQuestionsByGameId(String gameId);
+//    @Query("SELECT * FROM" + GameDataBase.GAME_TABLE)
+//    List<Question> getListOfGames();
 
     @Query("SELECT * FROM question_table")
     List<Question> getAllQuestions();

@@ -10,17 +10,19 @@ public class Game {
     @PrimaryKey
     private String gameId;
     private String gameName;
+    private static final int totalQuestions = 20;
 
-    public Game(String gameId, String gameName) {
+    public Game(@NonNull String gameId, String gameName) {
         this.gameId = gameId;
         this.gameName = gameName;
     }
 
+    @NonNull
     public String getGameId() {
         return gameId;
     }
 
-    public void setGameId(String gameId) {
+    public void setGameId(@NonNull String gameId) {
         this.gameId = gameId;
     }
 
@@ -32,6 +34,11 @@ public class Game {
         this.gameName = gameName;
     }
 
+    public int getTotalQuestions() {
+        return totalQuestions;
+    }
+
+    @NonNull
     @Override
     public String toString() {
         return "Game{" +

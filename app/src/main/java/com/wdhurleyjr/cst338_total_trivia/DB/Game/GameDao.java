@@ -22,6 +22,6 @@ public interface GameDao {
     @Query("SELECT * FROM game_table WHERE gameId = :gameId")
     Game getGameById(String gameId);
 
-    @Query("SELECT * FROM game_table")
+    @Query("SELECT * FROM " + GameDataBase.GAME_TABLE)
     List<Game> getAllGames();
 }

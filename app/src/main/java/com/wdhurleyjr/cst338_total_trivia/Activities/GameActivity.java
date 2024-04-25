@@ -7,22 +7,40 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-
+import android.widget.Button;
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.Game;
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.GameDao;
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.GameDataBase;
 import com.wdhurleyjr.cst338_total_trivia.R;
-import com.wdhurleyjr.cst338_total_trivia.Recycler.RecyclerViewInterface;
 
-import java.util.Objects;
+import java.util.List;
 
-public class GameActivity extends AppCompatActivity implements RecyclerViewInterface {
+public class GameActivity extends AppCompatActivity {
+
+    GameDao gameDao;
+
+    Button triviaButton1;
+    Button triviaButton2;
+    Button triviaButton3;
+    Button triviaButton4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+        gameDao = GameDataBase.getInstance(this).GameDao();
+
+        triviaButton1 = findViewById(R.id.trivia_button_1);
+        triviaButton2 = findViewById(R.id.trivia_button_2);
+//        triviaButton3 = findViewById(R.id.trivia_button_3);
+//        triviaButton4 = findViewById(R.id.trivia_button_4);
+
         Intent intent = getIntent();
         boolean isAdmin = intent.getBooleanExtra("isAdmin", false);
         ImageView leftIcon = findViewById(R.id.left_icon);
+
+        performButtonTextUpdate();
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,10 +51,26 @@ public class GameActivity extends AppCompatActivity implements RecyclerViewInter
             }
         });
     }
-    @Override
-    public void onClickItem(int position) {
-
+    private void performButtonTextUpdate() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<Game> games = gameDao.getAllGames();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (games != null) {
+                            triviaButton1.setText(games.get(0).getGameName());
+                            triviaButton2.setText(games.get(1).getGameName());
+//                            triviaButton3.setText(games.get(2).getGameName());
+//                            triviaButton4.setText(games.get(3).getGameName());
+                        }
+                    }
+                });
+            }
+        }).start();
     }
+
     public static Intent gameIntentFactory(Context context) {
         return new Intent(context, GameActivity.class);
     }

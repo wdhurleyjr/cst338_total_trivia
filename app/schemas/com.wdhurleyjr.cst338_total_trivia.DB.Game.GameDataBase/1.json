@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "f548d78a289310c0e0d2e6a2cd89980d",
+    "identityHash": "31afd4351ca34b26632aa11721865692",
     "entities": [
       {
         "tableName": "game_table",
@@ -32,7 +32,7 @@
       },
       {
         "tableName": "question_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`questionId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `gameId` TEXT, `gameQuestion` TEXT, `gameAnswer1` TEXT, `gameAnswer2` TEXT, `gameAnswer3` TEXT, `gameAnswer4` TEXT, FOREIGN KEY(`gameId`) REFERENCES `game_table`(`gameId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`questionId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `gameId` TEXT, `gameQuestion` TEXT, `gameAnswer1` TEXT, `gameAnswer2` TEXT, `gameAnswer3` TEXT, `gameAnswer4` TEXT, `correctAnswer` TEXT, `isAnswered` INTEGER NOT NULL, FOREIGN KEY(`gameId`) REFERENCES `game_table`(`gameId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "questionId",
@@ -75,6 +75,18 @@
             "columnName": "gameAnswer4",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "correctAnswer",
+            "columnName": "correctAnswer",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "isAnswered",
+            "columnName": "isAnswered",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -102,7 +114,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f548d78a289310c0e0d2e6a2cd89980d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '31afd4351ca34b26632aa11721865692')"
     ]
   }
 }
