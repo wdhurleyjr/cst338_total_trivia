@@ -9,4 +9,6 @@
     <string name="login_activity_username">username</string>
     <string name="activity_create_account_text">Create Account</string>
     <string name="create_account_activity_button_text">Create Account</string>
+    <string name="button2">button2</string>
+    <string name="button1">button1</string>
 </resources>
