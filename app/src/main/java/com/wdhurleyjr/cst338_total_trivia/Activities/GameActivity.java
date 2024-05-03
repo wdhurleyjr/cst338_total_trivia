@@ -29,6 +29,9 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
+
+
+
         gameDao = GameDataBase.getInstance(this).GameDao();
 
         triviaButton1 = findViewById(R.id.trivia_button_1);
@@ -48,6 +51,26 @@ public class GameActivity extends AppCompatActivity {
                 Intent landingPageIntent = LandingPageActivity.landingPageIntentFactory(getApplicationContext());
                 landingPageIntent.putExtra("isAdmin", isAdmin);
                 startActivity(landingPageIntent);
+            }
+        });
+
+        triviaButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedGame = triviaButton1.getText().toString();
+                Intent intent = new Intent(GameActivity.this, TriviaGameActivity.class);
+                intent.putExtra("Harry Potter Trivia", selectedGame);
+                startActivity(intent);
+            }
+        });
+
+        triviaButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String selectedGame = triviaButton2.getText().toString();
+                Intent intent2 = new Intent(GameActivity.this, TriviaGameActivity.class);
+                intent2.putExtra("Star Wars Trivia", selectedGame);
+                startActivity(intent2);
             }
         });
     }
@@ -74,4 +97,7 @@ public class GameActivity extends AppCompatActivity {
     public static Intent gameIntentFactory(Context context) {
         return new Intent(context, GameActivity.class);
     }
+
+
+
 }
