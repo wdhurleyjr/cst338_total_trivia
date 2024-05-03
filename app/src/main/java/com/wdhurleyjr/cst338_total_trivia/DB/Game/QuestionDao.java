@@ -1,5 +1,6 @@
 package com.wdhurleyjr.cst338_total_trivia.DB.Game;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -24,4 +25,7 @@ public interface QuestionDao {
 
     @Query("SELECT * FROM question_table")
     List<Question> getAllQuestions();
+
+    @Query("SELECT * FROM question_table WHERE gameId = :selectedGameName")
+    List<Question> getQuestionsByGame(String selectedGameName);
 }
