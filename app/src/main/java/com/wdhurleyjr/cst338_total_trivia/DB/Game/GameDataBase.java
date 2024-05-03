@@ -22,6 +22,9 @@ public abstract class GameDataBase extends RoomDatabase {
     public abstract GameDao GameDao();
     public abstract QuestionDao QuestionDao();
 
+
+
+
     private static final RoomDatabase.Callback addDefaultValues = new RoomDatabase.Callback() {
         @Override
         public void onCreate(@NonNull SupportSQLiteDatabase db) {
@@ -948,17 +951,30 @@ public abstract class GameDataBase extends RoomDatabase {
         }
     };
 
-    public static GameDataBase getInstance(Context context) {
-        if (instance == null) {
-            synchronized (LOCK) {
-                if (instance == null) {
-                    // Build the Room database instance
+    public static GameDataBase getInstance(Context context){
+        if(instance == null){
+            synchronized (LOCK){
+                if (instance == null){
                     instance = Room.databaseBuilder(context.getApplicationContext(), GameDataBase.class, GAME_DATA_BASE_NAME)
-                            .addCallback(addDefaultValues)
+                            .fallbackToDestructiveMigration()
                             .build();
                 }
             }
         }
         return instance;
     }
+
+//    public static GameDataBase getInstance(Context context) {
+//        if (instance == null) {
+//            synchronized (LOCK) {
+//                if (instance == null) {
+//                    // Build the Room database instance
+//                    instance = Room.databaseBuilder(context.getApplicationContext(), GameDataBase.class, GAME_DATA_BASE_NAME)
+//                            .addCallback(addDefaultValues)
+//                            .build();
+//                }
+//            }
+//        }
+//        return instance;
+//    }
 }
