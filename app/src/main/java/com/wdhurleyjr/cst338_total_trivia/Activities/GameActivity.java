@@ -1,6 +1,8 @@
 package com.wdhurleyjr.cst338_total_trivia.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import android.content.Context;
 import android.content.Intent;
@@ -75,24 +77,40 @@ public class GameActivity extends AppCompatActivity {
         });
     }
     private void performButtonTextUpdate() {
-        new Thread(new Runnable() {
+        LiveData<List<Game>> gamesLiveData = gameDao.getAllGames();
+        gamesLiveData.observe(this, new Observer<List<Game>>() {
             @Override
-            public void run() {
-                List<Game> games = gameDao.getAllGames();
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (games != null) {
-                            triviaButton1.setText(games.get(0).getGameName());
-                            triviaButton2.setText(games.get(1).getGameName());
-//                            triviaButton3.setText(games.get(2).getGameName());
-//                            triviaButton4.setText(games.get(3).getGameName());
-                        }
-                    }
-                });
+            public void onChanged(List<Game> games) {
+                if (games != null && games.size() >= 2) {
+                    triviaButton1.setText(games.get(0).getGameName());
+                    triviaButton2.setText(games.get(1).getGameName());
+                    // Similarly, update other buttons if needed
+                }
             }
-        }).start();
+        });
     }
+
+
+
+//    private void performButtonTextUpdate() {
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                List<Game> games = gameDao.getAllGames();
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if (games != null) {
+//                            triviaButton1.setText(games.get(0).getGameName());
+//                            triviaButton2.setText(games.get(1).getGameName());
+////                            triviaButton3.setText(games.get(2).getGameName());
+////                            triviaButton4.setText(games.get(3).getGameName());
+//                        }
+//                    }
+//                });
+//            }
+//        }).start();
+//    }
 
     public static Intent gameIntentFactory(Context context) {
         return new Intent(context, GameActivity.class);

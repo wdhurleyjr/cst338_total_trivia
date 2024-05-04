@@ -24,5 +24,5 @@ public interface GameDao {
     Game getGameById(String gameId);
 
     @Query("SELECT * FROM " + GameDataBase.GAME_TABLE)
-    List<Game> getAllGames();
+    LiveData<List<Game>> getAllGames();
 }

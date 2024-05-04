@@ -15,7 +15,7 @@ public interface QuestionDao {
     void insert(Question... questions);
 
     @Update
-    void  update(Question... questions);
+    void update(Question... questions);
 
     @Delete
     void delete(Question... questions);
@@ -24,8 +24,8 @@ public interface QuestionDao {
 //    List<Question> getListOfGames();
 
     @Query("SELECT * FROM question_table")
-    List<Question> getAllQuestions();
+    LiveData<List<Question>> getAllQuestions();
 
     @Query("SELECT * FROM question_table WHERE gameId = :selectedGameName")
-    List<Question> getQuestionsByGame(String selectedGameName);
+    LiveData<List<Question>> getQuestionsByGame(String selectedGameName);
 }

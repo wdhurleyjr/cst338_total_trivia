@@ -18,9 +18,10 @@ public abstract class GameDataBase extends RoomDatabase {
 
     private static volatile GameDataBase instance;
     private static final Object LOCK = new Object();
-    private static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(4);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(4);
     public abstract GameDao GameDao();
     public abstract QuestionDao QuestionDao();
+
 
 
 
@@ -33,14 +34,14 @@ public abstract class GameDataBase extends RoomDatabase {
                 GameDao gameDao = instance.GameDao();
                 QuestionDao questionDao = instance.QuestionDao();
 
-                String game1id = "1";
-                Game game1 = new Game(game1id, "Harry Potter Trivia");
+                String game1Id = "1";
+                Game game1 = new Game("1", "Harry Potter Trivia");
                 gameDao.insert(game1);
 
                 Question[] harryPotterQuestions = {
                         new Question(
                                 1,
-                                game1id,
+                                game1Id,
                                 "What house at Hogwarts does Harry belong to?",
                                 "Gryffindor",
                                 "Slytherin",
@@ -51,7 +52,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 2,
-                                game1id,
+                                game1Id,
                                 "Who is Fluffy?",
                                 "A dragon",
                                 "A three-headed dog",
@@ -62,7 +63,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 3,
-                                game1id,
+                                game1Id,
                                 "What position does Harry play on his Quidditch team?",
                                 "Chaser",
                                 "Bludger",
@@ -73,7 +74,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 4,
-                                game1id,
+                                game1Id,
                                 "What does the spell 'Lumos' do?",
                                 "Levitates objects",
                                 "Creates light",
@@ -84,7 +85,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 5,
-                                game1id,
+                                game1Id,
                                 "Which professor teaches Transfiguration at Hogwarts?",
                                 "Severus Snape",
                                 "Sybill Trelawney",
@@ -95,7 +96,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 6,
-                                game1id,
+                                game1Id,
                                 "What is the core material of Harry’s wand?",
                                 "Dragon heartstring",
                                 "Unicorn hair",
@@ -106,7 +107,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 7,
-                                game1id,
+                                game1Id,
                                 "What magical plant does Harry use to breathe underwater in the Triwizard Tournament?",
                                 "Devil's Snare",
                                 "Whomping Willow",
@@ -117,7 +118,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 8,
-                                game1id,
+                                game1Id,
                                 "Who is the Half-Blood Prince?",
                                 "Albus Dumbledore",
                                 "Harry Potter",
@@ -128,7 +129,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 9,
-                                game1id,
+                                game1Id,
                                 "Which magical creature is NOT found in the Forbidden Forest?",
                                 "Centaurs",
                                 "Unicorns",
@@ -139,7 +140,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 10,
-                                game1id,
+                                game1Id,
                                 "What is the name of Hermione’s cat?",
                                 "Crookshanks",
                                 "Norbert",
@@ -150,7 +151,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 11,
-                                game1id,
+                                game1Id,
                                 "Which item is NOT one of the Deathly Hallows?",
                                 "Elder Wand",
                                 "Resurrection Stone",
@@ -161,7 +162,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 12,
-                                game1id,
+                                game1Id,
                                 "Who destroys the final Horcrux?",
                                 "Hermione Granger",
                                 "Ron Weasley",
@@ -172,7 +173,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 13,
-                                game1id,
+                                game1Id,
                                 "What is Voldemort’s real name?",
                                 "Sirius Black",
                                 "Severus Snape",
@@ -183,7 +184,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 14,
-                                game1id,
+                                game1Id,
                                 "Who is NOT a member of the Order of the Phoenix?",
                                 "Nymphadora Tonks",
                                 "Mad-Eye Moody",
@@ -194,7 +195,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 15,
-                                game1id,
+                                game1Id,
                                 "What does the Imperius Curse do?",
                                 "Controls",
                                 "Tortures",
@@ -205,7 +206,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 16,
-                                game1id,
+                                game1Id,
                                 "Which class is taught by Professor Binns?",
                                 "Divination",
                                 "History of Magic",
@@ -216,7 +217,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 17,
-                                game1id,
+                                game1Id,
                                 "Where do the Dursleys live?",
                                 "Little Whinging, Surrey",
                                 "Ottery St Catchpole",
@@ -227,7 +228,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 18,
-                                game1id,
+                                game1Id,
                                 "Who originally owned the Elder Wand?",
                                 "Dumbledore",
                                 "Draco Malfoy",
@@ -238,7 +239,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 19,
-                                game1id,
+                                game1Id,
                                 "What is NOT a form of wizard transportation?",
                                 "Floo Powder",
                                 "Portkeys",
@@ -249,7 +250,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 20,
-                                game1id,
+                                game1Id,
                                 "Which potion is commonly known as Liquid Luck?",
                                 "Polyjuice Potion",
                                 "Amortentia",
@@ -262,14 +263,14 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insert(harryPotterQuestions);
 
 
-                String game2id = "2";
-                Game game2 = new Game(game2id, "Star Wars Trivia");
+                String game2Id = "2";
+                Game game2 = new Game(game2Id, "Star Wars Trivia");
                 gameDao.insert(game2);
 
                 Question[] starWarsQuestions = {
                         new Question(
                                 1,
-                                game2id,
+                                game2Id,
                                 "Who is Luke Skywalker's father?",
                                 "Obi-Wan Kenobi",
                                 "Anakin Skywalker",
@@ -280,7 +281,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 2,
-                                game2id,
+                                game2Id,
                                 "What species is Chewbacca?",
                                 "Ewok",
                                 "Rodian",
@@ -291,7 +292,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 3,
-                                game2id,
+                                game2Id,
                                 "Who is the pilot of the Millennium Falcon?",
                                 "Lando Calrissian",
                                 "Han Solo",
@@ -302,7 +303,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 4,
-                                game2id,
+                                game2Id,
                                 "What planet is Princess Leia from?",
                                 "Alderaan",
                                 "Naboo",
@@ -313,7 +314,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 5,
-                                game2id,
+                                game2Id,
                                 "Who built C-3PO?",
                                 "Obi-Wan Kenobi",
                                 "Anakin Skywalker",
@@ -324,7 +325,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 6,
-                                game2id,
+                                game2Id,
                                 "What color is Mace Windu's lightsaber?",
                                 "Blue",
                                 "Green",
@@ -335,7 +336,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 7,
-                                game2id,
+                                game2Id,
                                 "Who is the Supreme Leader of the First Order?",
                                 "Kylo Ren",
                                 "Snoke",
@@ -346,7 +347,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 8,
-                                game2id,
+                                game2Id,
                                 "What is the name of Boba Fett's ship?",
                                 "Slave I",
                                 "Executor",
@@ -357,7 +358,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 9,
-                                game2id,
+                                game2Id,
                                 "Who is the first character to speak in the original Star Wars (Episode IV: A New Hope)?",
                                 "Darth Vader",
                                 "C-3PO",
@@ -368,7 +369,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 10,
-                                game2id,
+                                game2Id,
                                 "Who kills Jabba the Hutt?",
                                 "Han Solo",
                                 "Princess Leia",
@@ -379,7 +380,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 11,
-                                game2id,
+                                game2Id,
                                 "Which planet is home to the Ewoks?",
                                 "Endor",
                                 "Tatooine",
@@ -390,7 +391,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 12,
-                                game2id,
+                                game2Id,
                                 "Who trains Luke Skywalker in the ways of the Jedi after Obi-Wan Kenobi's death?",
                                 "Yoda",
                                 "Mace Windu",
@@ -401,7 +402,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 13,
-                                game2id,
+                                game2Id,
                                 "Who defeats Count Dooku in Episode III: Revenge of the Sith?",
                                 "Obi-Wan Kenobi",
                                 "Anakin Skywalker",
@@ -412,7 +413,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 14,
-                                game2id,
+                                game2Id,
                                 "What is the name of the princess who becomes a senator and leads the Rebel Alliance?",
                                 "Padmé Amidala",
                                 "Leia Organa",
@@ -423,7 +424,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 15,
-                                game2id,
+                                game2Id,
                                 "Which character is known for saying, 'I have a bad feeling about this'?",
                                 "Han Solo",
                                 "Luke Skywalker",
@@ -434,7 +435,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 16,
-                                game2id,
+                                game2Id,
                                 "What is the name of the bounty hunter who captures Han Solo in Episode V: The Empire Strikes Back?",
                                 "Boba Fett",
                                 "Greedo",
@@ -445,7 +446,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 17,
-                                game2id,
+                                game2Id,
                                 "Who becomes Darth Vader's apprentice in the Star Wars expanded universe?",
                                 "Galen Marek",
                                 "Mara Jade",
@@ -456,7 +457,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 18,
-                                game2id,
+                                game2Id,
                                 "What is the name of the weapon used to destroy the Death Star in Episode IV: A New Hope?",
                                 "Proton Torpedo",
                                 "Thermal Detonator",
@@ -467,7 +468,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 19,
-                                game2id,
+                                game2Id,
                                 "Who is responsible for creating the Clone Army?",
                                 "Count Dooku",
                                 "Jango Fett",
@@ -478,7 +479,7 @@ public abstract class GameDataBase extends RoomDatabase {
                         ),
                         new Question(
                                 20,
-                                game2id,
+                                game2Id,
                                 "Who is the voice of Darth Vader in the original trilogy?",
                                 "David Prowse",
                                 "James Earl Jones",
@@ -951,30 +952,30 @@ public abstract class GameDataBase extends RoomDatabase {
         }
     };
 
-    public static GameDataBase getInstance(Context context){
-        if(instance == null){
-            synchronized (LOCK){
-                if (instance == null){
-                    instance = Room.databaseBuilder(context.getApplicationContext(), GameDataBase.class, GAME_DATA_BASE_NAME)
-                            .fallbackToDestructiveMigration()
-                            .build();
-                }
-            }
-        }
-        return instance;
-    }
-
-//    public static GameDataBase getInstance(Context context) {
-//        if (instance == null) {
-//            synchronized (LOCK) {
-//                if (instance == null) {
-//                    // Build the Room database instance
+//    public static GameDataBase getInstance(Context context){
+//        if(instance == null){
+//            synchronized (LOCK){
+//                if (instance == null){
 //                    instance = Room.databaseBuilder(context.getApplicationContext(), GameDataBase.class, GAME_DATA_BASE_NAME)
-//                            .addCallback(addDefaultValues)
+//                            .fallbackToDestructiveMigration()
 //                            .build();
 //                }
 //            }
 //        }
 //        return instance;
 //    }
+
+    public static GameDataBase getInstance(Context context) {
+        if (instance == null) {
+            synchronized (LOCK) {
+                if (instance == null) {
+                    // Build the Room database instance
+                    instance = Room.databaseBuilder(context.getApplicationContext(), GameDataBase.class, GAME_DATA_BASE_NAME)
+                            .addCallback(addDefaultValues)
+                            .build();
+                }
+            }
+        }
+        return instance;
+    }
 }
