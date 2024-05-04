@@ -7,6 +7,9 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
+
+import com.wdhurleyjr.cst338_total_trivia.Activities.TriviaGameActivity;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,7 +21,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
     private static volatile GameDataBase instance;
     private static final Object LOCK = new Object();
-    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(4);
+    static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(4);
     public abstract GameDao GameDao();
     public abstract QuestionDao QuestionDao();
 
@@ -33,6 +36,7 @@ public abstract class GameDataBase extends RoomDatabase {
             databaseWriteExecutor.execute(() -> {
                 GameDao gameDao = instance.GameDao();
                 QuestionDao questionDao = instance.QuestionDao();
+
 
                 String game1Id = "1";
                 Game game1 = new Game("1", "Harry Potter Trivia");

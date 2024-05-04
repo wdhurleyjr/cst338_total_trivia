@@ -30,7 +30,7 @@ public class TriviaGameAdapter extends ListAdapter<Question, TriviaGameViewHolde
 
         @Override
         public boolean areItemsTheSame(@NonNull Question oldItem, @NonNull Question newItem){
-            return oldItem == newItem;
+            return oldItem.getQuestionId() == newItem.getQuestionId();
         }
 
         @Override

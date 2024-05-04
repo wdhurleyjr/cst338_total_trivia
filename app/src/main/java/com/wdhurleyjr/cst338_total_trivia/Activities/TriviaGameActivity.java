@@ -1,7 +1,9 @@
 package com.wdhurleyjr.cst338_total_trivia.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,7 @@ import androidx.room.Database;
 
 import com.wdhurleyjr.cst338_total_trivia.DB.Game.GameDataBase;
 import com.wdhurleyjr.cst338_total_trivia.DB.Game.Question;
+import com.wdhurleyjr.cst338_total_trivia.DB.Game.QuestionDao;
 import com.wdhurleyjr.cst338_total_trivia.DB.Game.QuestionRepository;
 import com.wdhurleyjr.cst338_total_trivia.R;
 import com.wdhurleyjr.cst338_total_trivia.TriviaViewModel.TriviaGameAdapter;
@@ -44,41 +47,66 @@ public class TriviaGameActivity extends AppCompatActivity {
 
         repository = QuestionRepository.getRepository(getApplication());
 
+
         //repository.getAllQuestions().observe(this, adapter::submitList);
 
-
-
-        repository.getQuestionsByGame("1").observe(this, adapter::submitList);
-
-
-
         Intent intent = getIntent();
-        if(intent != null && intent.hasExtra("Harry Potter Trivia")){
-            String selectedGame = intent.getStringExtra("1");
-            if(selectedGame != null){
-                loadQuestions(selectedGame);
-            }
-
-        }
-        if(intent != null && intent.hasExtra("Star Wars Trivia")){
-            String selectedGame = intent.getStringExtra("2");
-            if(selectedGame != null){
-                loadQuestions(selectedGame);
-            }
+        String selectedGame;
+        if(intent.hasExtra("Harry Potter Trivia")){
+            selectedGame = "1";
+        } else if (intent.hasExtra("Star Wars Trivia")){
+            selectedGame = "2";
+        } else {
+            selectedGame = "0";
+            //this was select the third game..
         }
 
 
+        repository.getQuestionsByGame(selectedGame).observe(this, questions -> {
+            Log.d("TriviaGameActivity", "Received questions for game: " + selectedGame);
 
-    }
-
-    private void loadQuestions(String selectedGame){
-        GameDataBase database = GameDataBase.getInstance(this);
-        database.QuestionDao().getQuestionsByGame(selectedGame).observe(this, new Observer<List<Question>>() {
-            @Override
-            public void onChanged(List<Question> questions) {
-                adapter.submitList(questions);
-            }
+            adapter.submitList(questions);
         });
+
+
+//        Intent intent = getIntent();
+//        if(intent != null && intent.hasExtra("Harry Potter Trivia")){
+//            String selectedGame = intent.getStringExtra("1");
+//            repository.getQuestionsByGame(selectedGame).observe(this, questions -> {
+//                Log.d("TriviaGameActivity", "Received questions for game: " + selectedGame);
+//
+//                adapter.submitList(questions);
+//            });
+//            if(selectedGame != null){
+//                loadQuestions(selectedGame);
+//            }
+//
+//        }
+//        if(intent != null && intent.hasExtra("Star Wars Trivia")){
+//            String selectedGame = intent.getStringExtra("2");
+//            if(selectedGame != null){
+//                repository.getQuestionsByGame(selectedGame).observe(this, questions -> {
+//                    Log.d("TriviaGameActivity", "Received questions for game: " + selectedGame);
+//
+//                    adapter.submitList(questions);
+//                });
+//                loadQuestions(selectedGame);
+//            }
+//        }
+//
+//
+//
+//    }
+//
+//    private void loadQuestions(String selectedGame){
+//        GameDataBase database = GameDataBase.getInstance(this);
+//        database.QuestionDao().getQuestionsByGame(selectedGame).observe(this, new Observer<List<Question>>() {
+//            @Override
+//            public void onChanged(List<Question> questions) {
+//                adapter.submitList(questions);
+//            }
+//        });
+//    }
     }
 
 }

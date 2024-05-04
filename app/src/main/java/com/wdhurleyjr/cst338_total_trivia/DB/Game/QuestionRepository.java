@@ -1,6 +1,7 @@
 package com.wdhurleyjr.cst338_total_trivia.DB.Game;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
@@ -31,7 +32,9 @@ public class QuestionRepository {
         return mAllQuestions;
     }
 
-    public LiveData<List<Question>> getQuestionsByGame(String selectedGameName) {return mQuestionDao.getQuestionsByGame(selectedGameName); }
+    public LiveData<List<Question>> getQuestionsByGame(String selectedGameName) {
+        Log.d("QuestionRepository", "Fetching questions for game: " + selectedGameName);
+        return mQuestionDao.getQuestionsByGame(selectedGameName); }
 
     // Method to insert a question
     public void insert(Question question) {

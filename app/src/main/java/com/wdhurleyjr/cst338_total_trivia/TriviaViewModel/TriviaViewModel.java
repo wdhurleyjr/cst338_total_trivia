@@ -11,7 +11,7 @@ import com.wdhurleyjr.cst338_total_trivia.DB.Game.QuestionRepository;
 import java.util.List;
 
 public class TriviaViewModel extends AndroidViewModel {
-    private QuestionRepository questionRepository;  //final??
+    private final QuestionRepository questionRepository;  //final??
     private final LiveData<List<Question>> allQuestions;
 
     public TriviaViewModel (Application application){
