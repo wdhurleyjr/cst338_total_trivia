@@ -16,23 +16,26 @@
         app:layout_constraintVertical_bias="0.467">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="269dp">
+            android:layout_width="370dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/question_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="32dp"
                 android:text="Question"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.094"
+                app:layout_constraintHorizontal_bias="0.012"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
-                android:layout_width="412dp"
-                android:layout_height="192dp"
+                android:id="@+id/radioGroup"
+                android:layout_width="374dp"
+                android:layout_height="190dp"
                 android:layout_marginTop="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -41,25 +44,25 @@
 
                 <RadioButton
                     android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
+                    android:layout_width="342dp"
                     android:layout_height="wrap_content"
                     android:text="p_answer1" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
+                    android:layout_width="347dp"
                     android:layout_height="wrap_content"
                     android:text="p_answer2" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
-                    android:layout_width="match_parent"
+                    android:layout_width="344dp"
                     android:layout_height="wrap_content"
                     android:text="p_answer3" />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
-                    android:layout_width="match_parent"
+                    android:layout_width="344dp"
                     android:layout_height="wrap_content"
                     android:text="p_answer4" />
             </RadioGroup>
