@@ -9,10 +9,11 @@
 
     <TextView
         android:id="@+id/activity_landing_page_title_text"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="415dp"
+        android:layout_height="250dp"
         android:fontFamily="casual"
         android:gravity="center"
+        android:background="@drawable/thoughtbubble"
         android:text="Total Trivia"
         android:textSize="48sp"
         android:textStyle="bold"
