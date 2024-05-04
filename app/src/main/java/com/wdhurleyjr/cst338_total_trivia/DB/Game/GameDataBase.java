@@ -262,7 +262,7 @@ public abstract class GameDataBase extends RoomDatabase {
                                 "Veritaserum",
                                 "Felix Felicis",
                                 false
-                        )
+                        ),
                 };
                 questionDao.insert(harryPotterQuestions);
 
