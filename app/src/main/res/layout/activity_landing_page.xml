@@ -4,25 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/purplebackground"
+    android:background="@drawable/questionbackgroundedit"
     tools:context=".Activities.LandingPageActivity">
 
     <TextView
         android:id="@+id/activity_landing_page_title_text"
-        android:layout_width="415dp"
-        android:layout_height="250dp"
+        android:layout_width="393dp"
+        android:layout_height="295dp"
+        android:background="@drawable/thoughtbubble"
         android:fontFamily="casual"
         android:gravity="center"
-        android:background="@drawable/thoughtbubble"
         android:text="Total Trivia"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/activity_landing_page_play_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.516" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/activity_landing_page_leaderboard_button"
@@ -30,52 +29,60 @@
         android:layout_height="50dp"
         android:layout_marginBottom="20dp"
         android:text="Leaderboard"
-        app:layout_constraintBottom_toTopOf="@+id/activity_landing_page_create_game_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias=".68"
+        />
+
 
     <Button
         android:id="@+id/activity_landing_page_play_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
         android:text="Play"
-        app:layout_constraintBottom_toTopOf="@+id/activity_landing_page_leaderboard_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.559" />
 
     <Button
         android:id="@+id/activity_landing_page_create_game_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
         android:text="Create Game"
-        app:layout_constraintBottom_toTopOf="@+id/activity_landing_page_user_management_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
     <Button
         android:id="@+id/activity_landing_page_user_management_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
         android:text="User Managment"
-        app:layout_constraintBottom_toTopOf="@+id/activity_landing_page_logout_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.853" />
 
     <Button
         android:id="@+id/activity_landing_page_logout_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="20dp"
         android:text="Log Out"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.757" />
 </androidx.constraintlayout.widget.ConstraintLayout>
