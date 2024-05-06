@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,8 @@ public class TriviaGameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trivia_game);
 
+        Button submit_button = findViewById(R.id.bottom_button);
+
         triviaViewModel = new ViewModelProvider(this).get(TriviaViewModel.class);
 
 
@@ -66,6 +70,15 @@ public class TriviaGameActivity extends AppCompatActivity {
             Log.d("TriviaGameActivity", "Received questions for game: " + selectedGame);
 
             adapter.submitList(questions);
+        });
+
+
+        submit_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent scoreIntent = ScoreTriviaGame.scoreTriviaGameIntentFactory(getApplicationContext());
+                startActivity(scoreIntent);
+            }
         });
 
 
