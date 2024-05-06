@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.GiveAdminActivity">
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/usernameAdmin_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="175dp"
+        android:hint="username"
+        app:layout_constraintTop_toBottomOf="@id/include2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <EditText
+        android:id="@+id/passwordAdmin_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:hint="password"
+        app:layout_constraintTop_toBottomOf="@id/usernameAdmin_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/give_admin_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="Give Admin"
+        app:layout_constraintTop_toBottomOf="@id/passwordAdmin_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
