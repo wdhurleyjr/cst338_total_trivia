@@ -13,9 +13,12 @@
         android:theme="@style/Theme.Cst338_total_trivia"
         tools:targetApi="31">
         <activity
+            android:name=".Activities.TriviaScore"
+            android:exported="false"
+            android:theme="@style/Theme.Cst338_total_trivia" />
+        <activity
             android:name=".Activities.TriviaGameActivity"
-            android:exported="false" />
-        <!-- Main Activity with Intent Filter -->
+            android:exported="false" /> <!-- Main Activity with Intent Filter -->
         <activity
             android:name=".Activities.MainActivity"
             android:exported="true">

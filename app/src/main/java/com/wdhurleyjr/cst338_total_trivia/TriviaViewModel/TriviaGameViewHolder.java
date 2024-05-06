@@ -15,10 +15,17 @@ public class TriviaGameViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView questionTextView;
     private final RadioButton radioButton1;
+
     private final RadioButton radioButton2;
+
     private final RadioButton radioButton3;
+
     private final RadioButton radioButton4;
-    private TriviaGameViewHolder(View triviaGameView){
+
+
+
+
+    TriviaGameViewHolder(View triviaGameView){
         super(triviaGameView);
         questionTextView = triviaGameView.findViewById(R.id.question_text_view);
         radioButton1 = triviaGameView.findViewById(R.id.radioButton1);

@@ -26,6 +26,8 @@ public interface QuestionDao {
     @Query("SELECT * FROM question_table")
     LiveData<List<Question>> getAllQuestions();
 
+
+
     @Query("SELECT * FROM question_table WHERE gameId = :selectedGameName")
     LiveData<List<Question>> getQuestionsByGame(String selectedGameName);
 }
