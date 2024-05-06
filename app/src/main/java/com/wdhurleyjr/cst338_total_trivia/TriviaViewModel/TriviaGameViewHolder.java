@@ -46,6 +46,6 @@ public class TriviaGameViewHolder extends RecyclerView.ViewHolder {
     static TriviaGameViewHolder create(ViewGroup parent){
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_view_row, parent, false);
-        return  new TriviaGameViewHolder(view);
+        return new TriviaGameViewHolder(view);
     }
 }
