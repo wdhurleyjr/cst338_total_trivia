@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +52,6 @@ public class TriviaGameActivity extends AppCompatActivity {
 
         repository = QuestionRepository.getRepository(getApplication());
 
-
         //repository.getAllQuestions().observe(this, adapter::submitList);
 
         Intent intent = getIntent();
@@ -64,6 +64,8 @@ public class TriviaGameActivity extends AppCompatActivity {
             selectedGame = "0";
             //this was select the third game..
         }
+        boolean isAdmin = intent.getBooleanExtra("isAdmin", false);
+        ImageView leftIcon = findViewById(R.id.left_icon);
 
 
         repository.getQuestionsByGame(selectedGame).observe(this, questions -> {
@@ -78,6 +80,14 @@ public class TriviaGameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent scoreIntent = ScoreTriviaGame.scoreTriviaGameIntentFactory(getApplicationContext());
                 startActivity(scoreIntent);
+            }
+        });
+        leftIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent gameActivityIntent = GameActivity.gameIntentFactory(getApplicationContext());
+                gameActivityIntent.putExtra("isAdmin", isAdmin);
+                startActivity(gameActivityIntent);
             }
         });
 

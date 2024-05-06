@@ -21,12 +21,19 @@ public interface UserLogDao {
 
     @Query("SELECT * FROM " + UserLogDataBase.USER_LOG_TABLE)
     List<UserLog> getUserLogs();
+
     @Query("SELECT * FROM " + UserLogDataBase.USER_LOG_TABLE + " WHERE username = :username")
     UserLog getUserByUsername(String username);
+
     @Query("SELECT * FROM " + UserLogDataBase.USER_LOG_TABLE + " WHERE password = :password")
     UserLog getUserByPassword(String password);
+
     @Query("SELECT * FROM " + UserLogDataBase.USER_LOG_TABLE + " WHERE username = :username AND password = :password")
     UserLog getUserByUsernameAndPassword(String username, String password);
+
     @Query("SELECT * FROM " + UserLogDataBase.USER_LOG_TABLE + " WHERE id = :userId")
     UserLog getUserById(int userId);
+
+    @Update
+    void updateAdminPrivileges(UserLog user);
 }
