@@ -22,6 +22,7 @@ public class UserManagementActivity extends AppCompatActivity {
         boolean isAdmin = intent.getBooleanExtra("isAdmin", false);
         ImageView leftIcon = findViewById(R.id.left_icon);
         Button giveAdminButton = findViewById(R.id.give_admin_button);
+        Button deleteUserButton = findViewById(R.id.delete_user_button);
 
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,6 +38,14 @@ public class UserManagementActivity extends AppCompatActivity {
                 Intent giveAdminIntent = GiveAdminActivity.giveAdminIntentFactory(getApplicationContext());
                 giveAdminIntent.putExtra("isAdmin", isAdmin);
                 startActivity(giveAdminIntent);
+            }
+        });
+        deleteUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent deleteUserIntent = DeleteUserActivity.deleteUserIntentFactory(getApplicationContext());
+                deleteUserIntent.putExtra("isAdmin", isAdmin);
+                startActivity(deleteUserIntent);
             }
         });
     }
