@@ -14,8 +14,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.wdhurleyjr.cst338_total_trivia.DB.User.UserLog;
 import com.wdhurleyjr.cst338_total_trivia.R;
+import com.wdhurleyjr.cst338_total_trivia.TriviaViewModel.TriviaGameAdapter;
 
 public class ScoreTriviaGame extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class ScoreTriviaGame extends AppCompatActivity {
             }
         });
         try_again.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 finish();

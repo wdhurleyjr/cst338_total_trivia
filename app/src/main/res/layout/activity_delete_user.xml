@@ -39,10 +39,10 @@
         android:id="@+id/delete_user_button"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:text="Give Admin"
-        app:layout_constraintTop_toBottomOf="@id/passwordAdmin_edit_text"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="40dp"
+        android:text="Delete"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordAdmin_edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
