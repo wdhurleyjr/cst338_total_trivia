@@ -75,13 +75,30 @@ public class TriviaGameActivity extends AppCompatActivity {
         });
 
 
-        submit_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent scoreIntent = ScoreTriviaGame.scoreTriviaGameIntentFactory(getApplicationContext());
-                startActivity(scoreIntent);
-            }
-        });
+        if(selectedGame.equals("1")){
+            submit_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String selectedSubmit = submit_button.getText().toString();
+                    Intent scoreIntent = ScoreTriviaGame.scoreTriviaGameIntentFactory(getApplicationContext());
+                    intent.putExtra("Harry Potter Trivia", selectedSubmit);
+                    startActivity(scoreIntent);
+                }
+            });
+        }
+
+        if(selectedGame.equals("2")){
+            submit_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String selectedSubmit = submit_button.getText().toString();
+                    Intent scoreIntent = ScoreTriviaGame.scoreTriviaGameIntentFactory(getApplicationContext());
+                    intent.putExtra("Star Wars Trivia", selectedSubmit);
+                    startActivity(scoreIntent);
+                }
+            });
+        }
+
         leftIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,6 +147,10 @@ public class TriviaGameActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
+    }
+
+    public static Intent triviaGameActivityIntentFactory(Context context){
+        return new Intent(context, TriviaGameActivity.class);
     }
 
 }
